@@ -1,0 +1,14 @@
+{
+  "name": "Alien Cat Invasion",
+  "description": "Space invaders",
+  "version": "1.0",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@git.generalassemb.ly:shiven/Alien_cat_invasion.git"
+    }
+  ],
+  "devDependencies": {
+    "eslint-config-airbnb-standard": "^1.4.1"
+  }
+}
