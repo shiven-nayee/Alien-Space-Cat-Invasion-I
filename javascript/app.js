@@ -7,20 +7,18 @@ window.onload = function () {
   let nul = null;
   ship.makeShip();
 
-  // Generates Cats and pushes them to cats array
-  setInterval(() => {
+  function populateCats() {
     cats.push(new Cat());
     const i = cats.length - 1;
     const randomNum = Math.floor(Math.random() * 5);
-    // console.log(randomNum);
     const lane = lanes[randomNum];
-    // console.log(lane);
     cats[i].makeCat(lane);
-    // console.log(ship.getPosition());
-  }, 1300);
+  }
 
-  // Get positions of all the cats and bullets removes them
-  setInterval(() => {
+  // Generates Cats and pushes them to cats array
+  const populateCatsInterval = setInterval(populateCats, 1300);
+
+  function removeAtEnd() {
     cats.forEach((cat, i) => {
       if (i === 0) {
         nul = null;
@@ -44,11 +42,12 @@ window.onload = function () {
         }
       }
     });
-  }, 50);
+  }
 
-  // Checks for collisions
-  // Goes through each bullet and compares it with all the cats for collisions
-  setInterval(function() {
+  // Get positions of all the cats and bullets removes them
+  const removeAtEndInterval = setInterval(removeAtEnd, 50);
+
+  function collisionDetection() {
     bullets.forEach((bullet, b) => {
       if (b === 0) {
         nul = null;
@@ -75,7 +74,28 @@ window.onload = function () {
         });
       }
     });
-  }, 50);
+  }
+
+  // Checks for collisions
+  // Goes through each bullet and compares it with all the cats for collisions
+  const collisionDetectionInterval = setInterval(collisionDetection, 50);
+
+  function endGame() {
+    if ($('#scores').html() > 20 || $('#hp') < 0) {
+      console.log(1);
+      if (confirm('You saved the world!, do you want to fight more?')) {
+        location.reload();
+      } else {
+        clearInterval(populateCatsInterval);
+        clearInterval(removeAtEndInterval);
+        clearInterval(collisionDetectionInterval);
+        clearInterval(endGameInterval);
+      }
+    }
+  }
+
+  // Win or lose game conditions
+  const endGameInterval = setInterval(endGame, 1000);
 
   // Event listener for moving and shooting the ship
   // Prevents ship from moving past the boundaries
@@ -91,14 +111,12 @@ window.onload = function () {
         if (shipX > lane1 + 25) {
           newCoordinates = { top: shipY, left: shipX - 50 };
           $('.ship').offset(newCoordinates);
-          console.log(1);
         }
         break;
       case 39:
         if (shipX < lane5 + 70) {
           newCoordinates = { top: shipY, left: shipX + 50 };
           $('.ship').offset(newCoordinates);
-          console.log(2);
         } else {
           break;
         }
@@ -109,14 +127,5 @@ window.onload = function () {
         newCoordinates = { top: shipY - 10, left: shipX + 42 };
         bullets[len].makeBullet(newCoordinates);
     }
-    console.log(3);
   }));
-
-  setInterval(function() {
-    if ($('#scores') === 100 || $('#hp') === 0) {
-      if (confirm('You saved the world!, do you want to fight more?')) {
-
-      }
-    }
-  }, 100);
 };
