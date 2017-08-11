@@ -1,8 +1,5 @@
 class Cat {
-  constructor(x, y) {
-    this.title = 'cat';
-    this.x = x;
-    this.y = y;
+  constructor() {
     this.alien = $('<div>').addClass('cat');
   }
 
@@ -10,16 +7,22 @@ class Cat {
     return this.alien;
   }
 
-  setAlien(el) {
-    this.alien = el;
-  }
-
   makeCat(lane) {
-    this.alien.attr('left', this.x);
-    this.alien.attr('top', this.y);
+    // this.alien.attr('left', 50);
+    // this.alien.attr('top', 0);
     this.alien.appendTo(lane);
   }
-}
 
-const catto = new Cat(200, 300);
-catto.makeCat();
+  // Returns object pos with x and y of Cat
+  getPosition() {
+    const pos = {
+      x: this.alien.offset().left,
+      y: this.alien.offset().top,
+    };
+    return pos;
+  }
+
+  removeCat() {
+    this.alien.remove();
+  }
+}

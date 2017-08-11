@@ -1,26 +1,32 @@
+main {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 
 .game {
   background-color: lightblue;
   display: flex;
-  position: absolute;
+  position: relative;
   justify-content: center;
   align-content: : center;
   height: 100%;
-  width: 100%;
+  width: 75%;
 }
 
 .cat {
-  position: relative;
-  /*float: left;*/
-  justify-content: space-around;
-/*  align-content: center;
-*/  background-color: grey;
-  left: 150px;
-  top: 92.5%;
-  width: 50px;
-  height: 50px;
-  animation: fall 5s linear;
+  position: absolute;
+  background-color: grey;
+  top: 90%;
+  width: 100px;
+  height: 100px;
+  animation: fall 7s linear;
+  z-index: 0;
 }
 
 @keyframes fall {
@@ -28,16 +34,12 @@
   to {top: 1000;}
 }
 
-
 .lane {
-  display: relative;
-  flex-grow: 1;
-/*  align-items: stretch;
-*/  justify-content: center;
-  align-content: stretch;
+  flex-grow: .2;
 }
 
 #lane1 {
+
   background-color: pink;
 }
 
@@ -53,11 +55,22 @@
   background-color: purple;
 }
 
+#lane5 {
+  background-color: lightblue;
+}
+
 .bottom {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100px;
-  bottom: 0;
+  bottom: 100px;
   z-index: 1;
-  background-color: yellow;
+  background-color: rgba(28, 130, 22, 0.7);
+}
+
+.ship {
+  height: 70px;
+  width: 70px;
+  background-color: cyan;
+  z-index: 2;
 }
