@@ -7,14 +7,20 @@
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
   <script src="javascript/cat.js"></script>
   <script src="javascript/world.js"></script>
   <script src="javascript/spaceship.js"></script>
+  <script src="javascript/bullet.js"></script>
   <script src="javascript/app.js"></script>
 </head>
 
 <body>
   <main>
+    <div class="score">
+      <h1>Score</h1>
+      <span id="scores">1</span>
+    </div>
     <div class="game">
       <!-- Stars -->
       <div class="star" id="star1"></div>
@@ -26,6 +32,10 @@
       <div class="lane" id="lane3"></div>
       <div class="lane" id="lane4"></div>
       <div class="lane" id="lane5"></div>
+    </div>
+    <div class="lives">
+      <h1>Health</h1>
+      <p><span id="hp">100</span>/100</p>
     </div>
     <!-- Spaceship area -->
     <div class="bottom"></div>

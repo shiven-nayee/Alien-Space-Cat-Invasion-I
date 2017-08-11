@@ -1,16 +1,22 @@
+body {
+  background-color: grey;
+  font-family: 'saira', sans-serif;
+  color: white;
+  font-size: 54px;
+  text-shadow: -1px 0 #000000,0 3px #000000,3px 0 #000000,0 -1px #000000;
+}
+
 main {
   position: absolute;
   height: 100%;
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-
 .game {
-  background-color: lightblue;
   display: flex;
   position: relative;
   justify-content: center;
@@ -19,27 +25,61 @@ main {
   width: 75%;
 }
 
+.score {
+  position: relative;
+  background-color: pink;
+  flex-grow: 1;
+  text-align: center;
+  width: 100px;
+  height: 120px;
+}
+
+#scores {
+  color: lightgreen;
+}
+
+.lives {
+  background-color: pink;
+  text-align: center;
+  flex-grow: 1;
+  width: 100px;
+  height: 120px;
+}
+
+#hp {
+  color: darkred;
+  font-size: 36px;
+}
+
 .cat {
   position: absolute;
-  background-color: grey;
-  top: 90%;
+  background-image: url(../assets/cat.png);
+  background-size: 100px;
+  border: 1px solid red;
+  transform: rotate(90deg);
+  top: 80%;
   width: 100px;
-  height: 100px;
+  height: 59px;
   animation: fall 7s linear;
   z-index: 0;
 }
 
 @keyframes fall {
-  from {top: 0;}
-  to {top: 1000;}
+  from {
+    top: 0;
+  }
+  to {
+    top: 1000;
+  }
 }
 
 .lane {
   flex-grow: .2;
+  display: flex;
+  justify-content: center;
 }
 
-#lane1 {
-
+/*#lane1 {
   background-color: pink;
 }
 
@@ -57,10 +97,13 @@ main {
 
 #lane5 {
   background-color: lightblue;
-}
+}*/
 
 .bottom {
   position: relative;
+  display: flex;
+  justify-content: center;
+  /*align-content: center;*/
   width: 100%;
   height: 100px;
   bottom: 100px;
@@ -69,8 +112,30 @@ main {
 }
 
 .ship {
-  height: 70px;
-  width: 70px;
-  background-color: cyan;
+  position: relative;
+  background-image: url('../assets/spaceship.png');
+  /*left: 0%;*/
+  background-size: 95px;
+  height: 95px;
+  width: 95px;
   z-index: 2;
+}
+
+.bullet {
+  position: absolute;
+  background-image: url('../assets/bullet.png');
+  border: 1px solid red;
+  width: 15px;
+  height: 30px;
+  animation: shot 7s linear;
+  z-index: 0;
+}
+
+@keyframes shot {
+  from {
+    top: 1000;
+  }
+  to {
+    top: 0;
+  }
 }
