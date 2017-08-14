@@ -8,8 +8,6 @@ class Cat {
   }
 
   makeCat(lane) {
-    // this.alien.attr('left', 50);
-    // this.alien.attr('top', 0);
     this.alien.appendTo(lane);
   }
 

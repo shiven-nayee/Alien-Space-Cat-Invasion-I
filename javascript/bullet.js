@@ -3,6 +3,7 @@ class Bullet {
     this.projectile = $('<div>').addClass('bullet');
   }
 
+  // Coordinates is an object of { top: y, left: x }
   makeBullet(coordinates) {
     this.projectile.appendTo($('.game'));
     this.projectile.offset(coordinates);

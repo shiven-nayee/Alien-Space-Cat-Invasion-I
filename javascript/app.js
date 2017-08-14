@@ -7,6 +7,8 @@ window.onload = function () {
   let nul = null;
   ship.makeShip();
 
+
+  // Generates Cats pushes them to cats array
   function populateCats() {
     cats.push(new Cat());
     const i = cats.length - 1;
@@ -15,9 +17,7 @@ window.onload = function () {
     cats[i].makeCat(lane);
   }
 
-  // Generates Cats and pushes them to cats array
-  const populateCatsInterval = setInterval(populateCats, 1300);
-
+  // Get positions of all the cats and bullets that reached the end and removes them
   function removeAtEnd() {
     cats.forEach((cat, i) => {
       if (i === 0) {
@@ -44,9 +44,10 @@ window.onload = function () {
     });
   }
 
-  // Get positions of all the cats and bullets removes them
-  const removeAtEndInterval = setInterval(removeAtEnd, 50);
 
+
+  // Checks for collisions
+  // Goes through each bullet and compares it with all the cats for collisions
   function collisionDetection() {
     bullets.forEach((bullet, b) => {
       if (b === 0) {
@@ -60,10 +61,10 @@ window.onload = function () {
             const bulletY = bullet.getPosition().y;
             const catX = cat.getPosition().x;
             const catY = cat.getPosition().y;
-            if (bulletX < catX + 50 &&
-                bulletX + 50 > catX &&
-                bulletY < catY + 50 &&
-                50 + bulletY > catY) {
+            if (bulletX < catX + 100 &&
+                bulletX + 15 > catX &&
+                bulletY < catY + 59 &&
+                30 + bulletY > catY) {
               bullet.removeBullet();
               bullets.splice(b, 1);
               cat.removeCat();
@@ -76,14 +77,21 @@ window.onload = function () {
     });
   }
 
-  // Checks for collisions
-  // Goes through each bullet and compares it with all the cats for collisions
-  const collisionDetectionInterval = setInterval(collisionDetection, 50);
-
+  // Win or lose game conditions
   function endGame() {
-    if ($('#scores').html() > 20 || $('#hp') < 0) {
+    if ($('#scores').html() > 99) {
       console.log(1);
-      if (confirm('You saved the world!, do you want to fight more?')) {
+      if (confirm('You saved the world!\n Do you want to fight more?')) {
+        location.reload();
+      } else {
+        clearInterval(populateCatsInterval);
+        clearInterval(removeAtEndInterval);
+        clearInterval(collisionDetectionInterval);
+        clearInterval(endGameInterval);
+
+      }
+    } else if ($('#hp').html() < 1) {
+      if (confirm('You let too many aliens through and got fired \n Do you want to fight more?')) {
         location.reload();
       } else {
         clearInterval(populateCatsInterval);
@@ -93,9 +101,6 @@ window.onload = function () {
       }
     }
   }
-
-  // Win or lose game conditions
-  const endGameInterval = setInterval(endGame, 1000);
 
   // Event listener for moving and shooting the ship
   // Prevents ship from moving past the boundaries
@@ -124,8 +129,25 @@ window.onload = function () {
       case 32:
         bullets.push(new Bullet());
         const len = bullets.length - 1;
-        newCoordinates = { top: shipY - 10, left: shipX + 42 };
+        newCoordinates = { top: shipY, left: shipX + 42 };
         bullets[len].makeBullet(newCoordinates);
+        break;
+      default:
+        console.log('Use the left, right and space keys to play the game');
+        break;
     }
   }));
+
+  var populateCatsInterval;
+  var removeAtEndInterval;
+  var collisionDetectionInterval;
+  var endGameInterval;
+
+  $('.start')[0].addEventListener('mouseup', function () {
+    populateCatsInterval = setInterval(populateCats, 1300);
+    removeAtEndInterval = setInterval(removeAtEnd, 50);
+    collisionDetectionInterval = setInterval(collisionDetection, 50);
+    endGameInterval = setInterval(endGame, 1000);
+    $('.start').remove();
+  })
 };
