@@ -1,3 +1,6 @@
+// 2d Collision Detection algorithm
+// https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+
 window.onload = function () {
   const place = new World();
   const cats = [{ type: 'cat' }];
@@ -17,7 +20,7 @@ window.onload = function () {
     cats[i].makeCat(lane);
   }
 
-  // Get positions of all the cats and bullets that reached the end and removes them
+  // Get positions of all the cats and bullets from the arrays that reached the end and removes them
   function removeAtEnd() {
     cats.forEach((cat, i) => {
       if (i === 0) {
@@ -48,6 +51,7 @@ window.onload = function () {
 
   // Checks for collisions
   // Goes through each bullet and compares it with all the cats for collisions
+  // Uses foreach loop
   function collisionDetection() {
     bullets.forEach((bullet, b) => {
       if (b === 0) {
@@ -78,6 +82,8 @@ window.onload = function () {
   }
 
   // Win or lose game conditions
+  // If the score exceed 99 you win the game
+  // If the HP goes below 1 you lose the game
   function endGame() {
     if ($('#scores').html() > 99) {
       console.log(1);
@@ -143,11 +149,12 @@ window.onload = function () {
   var collisionDetectionInterval;
   var endGameInterval;
 
+  // Event listener for the start button
   $('.start')[0].addEventListener('mouseup', function () {
     populateCatsInterval = setInterval(populateCats, 1300);
     removeAtEndInterval = setInterval(removeAtEnd, 50);
     collisionDetectionInterval = setInterval(collisionDetection, 50);
     endGameInterval = setInterval(endGame, 1000);
     $('.start').remove();
-  })
+  });
 };

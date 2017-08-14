@@ -1,3 +1,7 @@
+// https://github.com/shiven-nayee/scrolling_stars
+// Idea from: https://codepen.io/saransh/pen/BKJun?editors=0100
+
+// Counts the number of stars once it generates 100 stars it removes the interval
 var num1 = 0;
 function makeSmallStars() {
   let star = $('<div>').addClass('smallStar');
@@ -13,6 +17,7 @@ function makeSmallStars() {
   }
 }
 
+// Counts the number of stars once it generates 75 stars it removes the interval
 var num2 = 0;
 function makeMediumStars() {
   let star = $('<div>').addClass('mediumStar');
@@ -28,6 +33,7 @@ function makeMediumStars() {
   }
 }
 
+// Counts the number of stars once it generates 50 stars it removes the interval
 var num3 = 0;
 function makeLargeStars() {
   let star = $('<div>').addClass('largeStar');
