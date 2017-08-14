@@ -7,12 +7,12 @@
 # Wireframes
     Picture of basic wireframes for stages of the game. The actual product
     is different than what was first enviosioned after much thought.
-    [Wireframe images](https://www.git.generalassemb.ly/shiven/Alien_cat_invasion/blob/master/assets/wireframe.jpg)
+[Wireframe images](https://www.git.generalassemb.ly/shiven/Alien_cat_invasion/blob/master/assets/wireframe.jpg)
 
 # Initial features list
     Picture of the first list of features that would be included in the game.
     Some were added and some were removed.
-    [I'm an inline-style link](https://www.git.generalassemb.ly/shiven/Alien_cat_invasion/blob/master/assets/features.jpg)
+[Features](https://www.git.generalassemb.ly/shiven/Alien_cat_invasion/blob/master/assets/features.jpg)
 
 # Play the game
-    [Alien space cat invasion](https://www.alien-space-cat-invaders.bitballoon.com)
+[Alien space cat invasion](https://www.alien-space-cat-invaders.bitballoon.com)
