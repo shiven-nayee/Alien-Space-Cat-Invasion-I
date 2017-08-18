@@ -7,7 +7,7 @@
 # Wireframes
     Picture of basic wireframes for stages of the game. The actual product
     is different than what was first enviosioned after much thought.
-![Wireframe images](https://www.git.generalassemb.ly/shiven/Alien_cat_invasion/blob/master/assets/wireframe.jpg)
+![Wireframe images](assets/wireframe.jpg)
 
 # Initial features list
     Picture of the first list of features that would be included in the game.
