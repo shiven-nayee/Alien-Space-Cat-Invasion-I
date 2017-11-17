@@ -3,11 +3,13 @@ Advanced alien cats from another planet are attacking Earth. The earth has calle
 
 # Wireframes
 Picture of basic wireframes for stages of the game. The actual product is different than what was first envisioned after much thought.
+
 ![Wireframe images](assets/wireframe.jpg)
 
 # Initial features list
 Picture of the first list of features that would be included in the game. Some were added and some were removed.
-![Features](assets/features.jpg)
+
+![Features](assets/features.jpeg)
 
 # Challenges
 Throughout this project, I was constantly faced with new Challenges. I had the most trouble getting the collision detection algorithm to work. 
@@ -66,4 +68,5 @@ function collisionDetection() {
 Now that I had got the collision detection to work, I needed to figure out a way to check whether ALL of the objects were ever colliding. I got this to work by pushing every bullet and cat to their own respective arrays and then comparing the two arrays to see whether any collisions occured.
 # Screenshots
 Pictures from the games
+
 ![Screenshot](assets/Screenshot.png)
